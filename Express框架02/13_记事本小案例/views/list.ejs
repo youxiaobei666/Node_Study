@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>列表</title>
+  </head>
+  <body>
+    <% list.forEach((item)=>{ %> 备注：<span><%= item.data.mark %></span>
+    时间：<span><%= item.data.time %></span> 金钱：<span
+      ><%= item.data.price %></span
+    >
+    类型：<span><%= item.data.type === '-1' ? '支出' : '收入' %></span>
+    <a href="/delete:<%= item.id %>">删除</a>
+    <br />
+    <% })%>
+
+    <br />
+    <a href="/">回到主页</a>
+  </body>
+</html>

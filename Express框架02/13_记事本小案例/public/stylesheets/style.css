@@ -1,0 +1,25 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  text-align: center;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.form {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  height: 50px;
+  width: 50%;
+  border: 1px solid rgb(255, 183, 183);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
