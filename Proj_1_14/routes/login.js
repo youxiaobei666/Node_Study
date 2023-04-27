@@ -53,7 +53,6 @@ const router = express.Router();
 router.post("/", (req, res) => {
   // 解构数据
   const { username, password } = req.body;
-  console.log(req);
   console.log(req.body);
   // 判断密码和用户名是否正确
   const user = users.find((item) => {
@@ -65,10 +64,27 @@ router.post("/", (req, res) => {
   }
   // 生成 token,有效期 暂定一天 24h
   const token = jwt.sign({ ID: user.id }, MY_SECRET_KEY, {
-    expiresIn: 86400,
+    expiresIn: 60,
   });
+  // 设置 跨域
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Content-Type, Content-Length, Authorization, Accept, X-Requested-With"
+  );
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "PUT, POST, GET, DELETE, OPTIONS"
+  );
   // 返回token
-  res.send(token);
+  res.json({
+    message: "yeah!登陆成功!",
+    code: 200,
+    data: {
+      token,
+    },
+    success: true,
+  });
 });
 
 // 导出这个路由
